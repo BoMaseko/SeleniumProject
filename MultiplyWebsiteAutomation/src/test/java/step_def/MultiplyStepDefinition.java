@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -37,7 +38,17 @@ public class MultiplyStepDefinition {
 	}
 
 	@When("^The user enter login to momnetum multiply$")
-	public void The_user_enter_login_to_momnetum_multiply() {
+	public void The_user_enter_login_to_momnetum_multiply() throws InterruptedException {
+		
+		driver.findElement(By.xpath(".//*[@class='buorg']/div/span[2]/a[2]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(".//*[@class='stBannerMenus']/div[3]/a[1]/div")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(".//*[@name='popuplogin']/div[1]/input")).sendKeys("bomaseko1");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(".//*[@name='popuplogin']/div[2]/div/input")).sendKeys("@Melo201901");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(".//*[@class='icn-rightarrow-icn']")).click();
 	   
 	}
 
