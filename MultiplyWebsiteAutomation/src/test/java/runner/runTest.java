@@ -5,6 +5,6 @@ import cucumber.junit.Cucumber;
 
 @RunWith(Cucumber.class) 
 @Cucumber.Options(features = "feature\\multiply.feature", 
-glue = {"step_def"},format = {"pretty", "html:target/cucumber"}) 
+glue = {"step_def"},format = {"pretty", "html:target/cucumber"}, tags= {"@Login"}) 
 
 public class runTest { }	

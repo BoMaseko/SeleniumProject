@@ -15,10 +15,15 @@ import com.multiply.dataProviders.ConfigFileReader;
 import cucumber.annotation.en.Given;
 import cucumber.annotation.en.When;
 
+import com.multiply.pageObjects.LoginPage;
+import com.multiply.pageObjectsManagers.PageObjectManager;
+
 public class MultiplyStepDefinition extends BrowserFactory{
 	
 	WebDriver driver;
 	ConfigFileReader configFileReader;
+	LoginPage loginPage;
+	PageObjectManager pageObjectManager;
 	
 	@Test
 	@Given("^The user is opening the browser and navigates to momentum multiply$")
@@ -29,6 +34,18 @@ public class MultiplyStepDefinition extends BrowserFactory{
 	}
 
 	@When("^The user enter credentials to login to momnetum multiply$")
+	public void The_user_enter_credentials_to_login_to_momnetum_multiply(String user_Name, String password) throws InterruptedException {
+		pageObjectManager = new PageObjectManager(driver);
+		loginPage = pageObjectManager.getLoginPage();
+		loginPage.show_Login_Page();
+		/*loginPage.enter_UserName(user_Name);
+		driver.manage().timeouts().implicitlyWait(configFileReader.getImplicitlyWait(), TimeUnit.SECONDS);
+		loginPage.enter_Password(password);
+		driver.manage().timeouts().implicitlyWait(configFileReader.getImplicitlyWait(), TimeUnit.SECONDS);
+		loginPage.click_Login_Button();*/
+	}
+	
+	/*@When("^The user enter credentials to login to momnetum multiply$")
 	public void The_user_enter_credentials_to_login_to_momnetum_multiply(List<Credentials> userCredentials) throws InterruptedException {
 		for (Credentials credentials : userCredentials) {
 		driver.findElement(By.xpath(".//*[@class='stBannerMenus']/div[3]/a[1]/div")).click();
@@ -40,7 +57,7 @@ public class MultiplyStepDefinition extends BrowserFactory{
 		driver.findElement(By.xpath(".//*[@class='icn-rightarrow-icn']")).click();
 		Thread.sleep(2000);
 		}
-	}
+	}*/
 	
 	@When("^The user navigates to get more points tab$")
 	public void The_user_navigates_to_get_more_points_tab() {
