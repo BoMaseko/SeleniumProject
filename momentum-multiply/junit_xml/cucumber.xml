@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="28.551195">
+<testcase classname="Momentum Multiply" name="Validate Momentum Multiply Home Page" time="28.551195">
+<system-out><![CDATA[Given user opens browser....................................................passed
+Then user is on login Page..................................................passed
+Then user log on multiply home page.........................................passed
+]]></system-out>
+</testcase>
+</testsuite>
